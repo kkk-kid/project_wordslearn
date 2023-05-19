@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <HomeView></HomeView>
+    <router-view>
+      <HomeView></HomeView>
+    </router-view>
+    
   </div>
 </template>
 

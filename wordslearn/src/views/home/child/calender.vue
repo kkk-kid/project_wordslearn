@@ -12,7 +12,7 @@
                     <span><el-tag type="success">已背15词</el-tag></span>
                 </el-row>  
             </div>
-            <div v-for="(item,index) in dateNoContent" :key="index">
+            <div v-for="(item) in dateNoContent" :key="item.id">
                 <el-row v-if="item == data.day">
                   <el-tag type="danger">未背3词</el-tag>
                 </el-row>  

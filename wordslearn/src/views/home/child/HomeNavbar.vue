@@ -1,7 +1,7 @@
 <template>
   <div class="homenavbar">
     <el-menu
-      default-active="2"
+      default-active="/home"
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
@@ -9,11 +9,16 @@
       text-color="#fff"
       active-text-color="#ffd04b">
       <el-avatar> user </el-avatar>
-      <el-menu-item index="2">
+      <i class="el-icon-user-solid"></i>
+      <el-menu-item index="/home" @click="ItemClick('/home')">
+          <i class="el-icon-s-home"></i>
+          <span slot="title">首页</span>
+        </el-menu-item>
+      <el-menu-item index="/profile" @click="ItemClick('/profile')">
         <i class="el-icon-user-solid"></i>
         <span slot="title">个人资料</span>
       </el-menu-item>
-      <el-menu-item index="3">
+      <el-menu-item index="/setting" @click="ItemClick('/setting')">
         <i class="el-icon-menu"></i>
         <span slot="title">设置</span>
       </el-menu-item>
@@ -30,6 +35,9 @@ export default {
       },
       handleClose(key, keyPath) {
         console.log(key, keyPath);
+      },
+      ItemClick(index){
+        this.$router.push(index);
       }
     }
 }

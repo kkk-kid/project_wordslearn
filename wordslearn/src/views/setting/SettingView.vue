@@ -2,7 +2,7 @@
     <div class="settingview">
         <el-container >
             <el-aside width="10%">
-                <SettingNavbat></SettingNavbat>
+                <SettingNavbar></SettingNavbar>
             </el-aside>
             <el-main>Main</el-main>
         </el-container>
@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import SettingNavbat from './child/SettingNavbar.vue';
+import SettingNavbar from './child/SettingNavbar.vue';
 
 export default {
   name: 'SettingView',
   components: {
-    SettingNavbat,
+    SettingNavbar,
   }
 }
 </script>
