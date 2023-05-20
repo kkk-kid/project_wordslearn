@@ -7,8 +7,8 @@
       <el-container>
         <el-header><SeachBar @searchword="searchword"></SeachBar></el-header>
         <el-main>
-          <div class="wordshow">
-            {{ showword }}
+          <div class="wordsdisplay">
+              <WordShow :showword="showword"></WordShow>
           </div>
                 
         </el-main>
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import WordShow from "./child/WordShow.vue";
 import WordsAbout from "./child/WordsAbout.vue"
 import StatiscWords from "./child/StatiscWords.vue" //单词进度
 import CalenderCpn from './child/calender.vue' //进度日历
@@ -41,6 +42,7 @@ export default {
     CalenderCpn,
     StatiscWords,
     WordsAbout,
+    WordShow
   },
   data() {
     return {
@@ -95,10 +97,10 @@ export default {
     line-height: 320px;
   }
 
- .wordshow{
+ .wordsdisplay{
   position: absolute;
-  width: 840px;
-  height: 280px;
+  width: 46%;
+  height:40%;
   line-height: 20px;
   overflow: hidden;
  }

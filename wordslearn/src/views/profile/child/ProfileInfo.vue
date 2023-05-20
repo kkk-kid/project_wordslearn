@@ -12,7 +12,7 @@
                 <el-form-item label="性别" :label-width="formLabelWidth">
                     <el-input v-model="form.sex" autocomplete="off" :placeholder="sex"></el-input>
                 </el-form-item>
-                <el-form-item label="电话" :label-width="formLabelWidth">
+                <el-form-item label="邮箱" :label-width="formLabelWidth">
                     <el-input v-model="form.number" autocomplete="off" :placeholder="phonenumber"></el-input>
                 </el-form-item>
                 
@@ -28,7 +28,7 @@
     <div class="text item">用户名：<span>{{ username }}</span></div>
     <div class="text item">昵称：<span>{{ nickname }}</span></div>
     <div class="text item">性别：<span>{{ sex }}</span></div>
-    <div class="text item">电话号码：<span>{{ phonenumber }}</span></div>
+    <div class="text item">邮箱：<span>{{ phonenumber }}</span></div>
   </el-card>
   </div>
 </template>

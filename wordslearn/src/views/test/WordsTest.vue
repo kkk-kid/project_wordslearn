@@ -1,10 +1,12 @@
 <template>
-  
+    <div class="wordstest">
+        
+    </div>
 </template>
 
 <script>
 export default {
-  name: 'ProfileChange'
+  name: 'WordsTest',
 }
 </script>
 

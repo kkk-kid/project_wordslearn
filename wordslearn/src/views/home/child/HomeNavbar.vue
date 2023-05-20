@@ -9,7 +9,6 @@
       text-color="#fff"
       active-text-color="#ffd04b">
       <el-avatar> user </el-avatar>
-      <i class="el-icon-user-solid"></i>
       <el-menu-item index="/home" @click="ItemClick('/home')">
           <i class="el-icon-s-home"></i>
           <span slot="title">首页</span>
@@ -26,7 +25,7 @@
   </div>
 </template>
 
-<script lang='ts'>
+<script>
 export default {
     name: 'HomeNavbar',
     methods: {
