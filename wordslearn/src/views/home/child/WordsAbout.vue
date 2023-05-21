@@ -1,27 +1,33 @@
 <template>
     <div class="wordabout" >
         <div @click="funClick('/books')">
-            <el-col :span="8">
+            <el-col :span="6">
                 <el-card shadow="hover">
                     单词书
                 </el-card>
             </el-col>
         </div>
         <div @click="funClick('/test')">
-            <el-col :span="8">
+            <el-col :span="6">
                 <el-card shadow="hover" >
                     单词自测
                 </el-card>
             </el-col>
         </div>
         <div @click="funClick('/plan')">
-            <el-col :span="8">
+            <el-col :span="6">
                 <el-card shadow="hover">
                     单词计划
                 </el-card>
             </el-col>
         </div>
-        
+        <div @click="funClick('/learn')">
+            <el-col :span="6">
+                <el-card shadow="hover">
+                    背单词
+                </el-card>
+            </el-col>
+        </div>
         
     </div>
 </template>

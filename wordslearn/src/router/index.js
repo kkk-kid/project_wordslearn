@@ -5,9 +5,14 @@ const home = () => import("@/views/home/HomeView")
 const profile =() => import("@/views/profile/ProfileView")
 const setting =() => import("@/views/setting/SettingView")
 const books = () => import("@/views/books/BooksView")
+
 const test = () => import("@/views/test/WordsTest")
+const testqs = () => import("@/views/test/child/TestQs")
+const testssetting = () => import("@/views/test/child/TestSetting")
+
 const plan = () => import("@/views/plan/WordsPlan")
 const book = () => import("@/views/book/BookView")
+const learn = () => import("@/views/learn/LearnView")
 
 Vue.use(Router)
 
@@ -37,12 +42,30 @@ const routes = [
         component: book
     },
     {
-        path: 'test',
-        component: test
+        path: '/test',
+        component: test,
+        children: [
+            {
+                path:'',
+                redirect: 'testqs'
+            },
+            {
+                path: 'testqs',
+                component: testqs,
+            },
+            {
+                path: 'testsetting',
+                component: testssetting
+            }
+        ]
     },
     {
         path: '/plan',
         component: plan
+    },
+    {
+        path: '/learn',
+        component: learn
     }
 ]
 
