@@ -4,17 +4,10 @@
   
         <el-container>
           <el-header style="text-align: left; font-size: 12px">
-              <BookSearchBar></BookSearchBar>
+              <BookSearchBar @searchword="searchword"></BookSearchBar>
           </el-header>    
           <el-main>
-              <el-table :data="tableData">
-                  <el-table-column prop="word" label="单词" width="140"></el-table-column>
-                  
-                  <el-table-column prop="feature" label="词性" width="120"></el-table-column>
-        
-                  <el-table-column prop="interpret" label="中文释义"></el-table-column>
-        
-              </el-table>
+              <WordsList :toword="toword" @scrollword="scrollword"></WordsList>
           </el-main>
         </el-container>
       </el-container>
@@ -23,27 +16,36 @@
 
 <script>
 import BookSearchBar from "./child/BookSearchBar.vue"
+import WordsList from "./child/WordsList.vue"
 
 export default {
   name: 'BookView',
   components: {
     BookSearchBar,
+    WordsList
+  },
+  data(){
+    return {
+      toword: '',
+    }
   },
   computed: {
     bookname(){
       return this.$route.params.bookname;
     }
   },
-  data() {
-      const item = {
-        word: 'word',
-        feature: 'noun',
-        interpret: '文字，文档，词语'
-      };
-      return {
-        tableData: Array(20).fill(item)
-      }
+  methods: {
+    searchword(event){
+      console.log(this.toword)
+      console.log(event);
+      this.toword = event;
+    },
+    scrollword(id){
+      console.log(id)
+      
     }
+  },
+  
 }
 </script>
 
@@ -52,9 +54,14 @@ export default {
     background-color: #B3C0D1;
     color: #333;
     line-height: 60px;
+
   }
+    
   
   .el-aside {
     color: #333;
+  }
+  .WordsList{
+    width: 100%;
   }
 </style>

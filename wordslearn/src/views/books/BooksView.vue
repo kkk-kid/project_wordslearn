@@ -1,6 +1,6 @@
 <template>
     <div class="booksview">
-      
+      <div class="head"> <el-button type="primary" @click="returnClick()">返回主页</el-button></div>
       <BookItem v-for="(item) in books" :key="item.id" :book="item"></BookItem> 
     </div>
 </template>
@@ -35,10 +35,18 @@ export default {
         {id: 17, name: '四级词汇'},
       ]
     }
+  },
+  methods: {
+    returnClick() {
+      this.$router.push('/home')
+    }
   }
 }
 </script>
 
-<style>
-
+<style scoped>
+.el-button{
+  margin-top: 1%;
+  margin-left: 26px;
+}
 </style>

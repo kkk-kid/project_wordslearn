@@ -9,10 +9,12 @@ const books = () => import("@/views/books/BooksView")
 const test = () => import("@/views/test/WordsTest")
 const testqs = () => import("@/views/test/child/TestQs")
 const testssetting = () => import("@/views/test/child/TestSetting")
+const testcontent = () => import("@/views/test/child/TestContent")
 
 const plan = () => import("@/views/plan/WordsPlan")
 const book = () => import("@/views/book/BookView")
 const learn = () => import("@/views/learn/LearnView")
+
 
 Vue.use(Router)
 
@@ -56,6 +58,10 @@ const routes = [
             {
                 path: 'testsetting',
                 component: testssetting
+            },
+            {
+                path: 'testcontent',
+                component: testcontent,
             }
         ]
     },

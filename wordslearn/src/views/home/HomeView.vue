@@ -18,8 +18,7 @@
         </el-main>
       </el-container>
       <el-aside width="40%">
-        <StatiscWords></StatiscWords>
-        
+        <StatiscWords></StatiscWords>       
         <CalenderCpn></CalenderCpn>
       </el-aside>
     </el-container>
@@ -53,7 +52,7 @@ export default {
     searchword(event){
       this.showword = event;
     }
-  }
+  },
 }
 </script>
 

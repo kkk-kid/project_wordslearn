@@ -5,14 +5,19 @@
         </div>
         <el-divider style="background-color: black;"></el-divider>
         <div>
-            <el-button type="primary" round>开始测试</el-button>
+            <el-button type="primary" round @click="startClick">开始测试</el-button>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'TestStart'
+  name: 'TestStart',
+  methods: {
+    startClick(){
+        this.$router.push('/test/testcontent')
+    }
+  }
 }
 </script>
 

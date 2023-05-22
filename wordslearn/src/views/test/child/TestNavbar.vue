@@ -7,6 +7,10 @@
             class="el-menu-vertical-demo"
             @open="handleOpen"
             @close="handleClose">
+                <el-menu-item index="/home" >
+                    <i class="el-icon-s-home"></i>
+                    <span slot="title">首页</span>
+                </el-menu-item>
                 <el-menu-item index="/test/testqs" >
                     <i class="el-icon-s-management"></i>
                     <span slot="title">单词自测</span>

@@ -39,7 +39,8 @@ export default {
     funClick(index) {
         console.log('push')
         this.$router.push(index);
-    }
+    },
+    
   }
 }
 </script>
