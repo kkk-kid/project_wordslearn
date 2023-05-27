@@ -1,11 +1,11 @@
 <template>
     <div class="wordsplan">
       <el-container>
-      <el-aside width="60%">
-        <div class="setplan">
+      <el-main width="60%">
+        
           <PlanSetting></PlanSetting>
-        </div>
-      </el-aside>
+        
+      </el-main>
       <el-aside width="40%">
         <StatiscWords></StatiscWords>       
         <CalenderCpn></CalenderCpn>
@@ -30,16 +30,19 @@ export default {
 </script>
 
 <style>
+
 .wordsplan{
   text-align: center;
+  
 }
-.setplan{
+body > .el-container {
+    margin-bottom: 40px;
+  }
+
+  .wordsplan > .el-container {
   position: absolute;
-  width: 50%;
-  height: 50%;
-  background-color: rgb(239, 239, 239);
-  margin-top: 10%;
-  margin-left: 5%;
-  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  line-height: 0;
 }
 </style>

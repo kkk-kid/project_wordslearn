@@ -1,7 +1,12 @@
 <template>
     <div class="wordshow">
-        <div class="showhead"><h1>{{showword}}</h1></div>
+        <div class="showhead"><h1>{{ this.$store.state.currentShowWord.value }}</h1></div>
         <el-divider border-style="dashed" />
+        <div>
+            <h4>{{ this.$store.state.currentShowWord.meaningChinese }}</h4>
+            <h4>{{ this.$store.state.currentShowWord.example }}</h4>
+
+        </div>
     </div>
 </template>
 
@@ -10,9 +15,9 @@ export default {
   name: 'WordShow',
   props: {
     showword: {
-        type: String,
+        type: Object,
         default(){
-            return ""
+            return {}
         }
 
     }

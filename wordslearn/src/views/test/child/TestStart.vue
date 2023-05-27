@@ -11,12 +11,32 @@
 </template>
 
 <script>
+import { postTest } from '@/network/test';
+
 export default {
   name: 'TestStart',
   methods: {
     startClick(){
-        this.$router.push('/test/testcontent')
-    }
+        let module = Object.assign({},this.$store.state.testModule)
+        postTest(
+            module.testPercentage,
+            module.testNumber,
+            this.$store.state.userId,
+            module.testBook,
+            module.testChoice
+        ).then(res => {
+            console.log('请求数据',res)
+            if(res.code==500) alert('请先进行设置')
+            else{
+                this.$store.commit('settestList',res.data)
+                setTimeout(() =>{
+                    this.$router.push('/test/testcontent')
+                },500)   
+            }
+            
+        })
+        
+    },
   }
 }
 </script>

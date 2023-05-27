@@ -4,10 +4,10 @@
   
         <el-container>
           <el-header style="text-align: left; font-size: 12px">
-              <BookSearchBar @searchword="searchword"></BookSearchBar>
+              <BookSearchBar @searchword="searchword" :bookdid="bookid"></BookSearchBar>
           </el-header>    
           <el-main>
-              <WordsList :toword="toword" @scrollword="scrollword"></WordsList>
+              <WordsList :toword="toword" @scrollword="scrollword" :bookdid="bookid"></WordsList>
           </el-main>
         </el-container>
       </el-container>
@@ -30,8 +30,8 @@ export default {
     }
   },
   computed: {
-    bookname(){
-      return this.$route.params.bookname;
+    bookid(){
+      return Number(this.$route.params.bookid);
     }
   },
   methods: {

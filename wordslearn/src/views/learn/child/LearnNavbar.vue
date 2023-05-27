@@ -1,5 +1,5 @@
 <template>
-    <div class="testnavbar">
+    <div class="learnnavbar">
         <el-col :span="12">
         <el-menu
             :router=true
@@ -11,17 +11,13 @@
                     <i class="el-icon-s-home"></i>
                     <span slot="title">首页</span>
                 </el-menu-item>
-                <el-menu-item index="/test/testqs" >
+                <el-menu-item index="/learn/learnstart" >
                     <i class="el-icon-s-management"></i>
-                    <span slot="title">单词自测</span>
+                    <span slot="title">背单词</span>
                 </el-menu-item>
-                <el-menu-item index="/test/testhistory" >
-                    <i class="el-icon-s-management"></i>
-                    <span slot="title">历史测试</span>
-                </el-menu-item>
-                <el-menu-item index="/test/testsetting">
+                <el-menu-item index="/learn/learnsetting">
                     <i class="el-icon-s-tools"></i>
-                    <span slot="title">测试设置</span>
+                    <span slot="title">设置</span>
                 </el-menu-item>
         </el-menu>
         </el-col>
@@ -30,7 +26,7 @@
 
 <script>
 export default {
-  name: 'TestNavbar',
+  name: 'learnNavbar',
   methods: {
       handleOpen(key, keyPath) {
         console.log(key, keyPath);

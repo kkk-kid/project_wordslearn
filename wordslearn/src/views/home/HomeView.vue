@@ -5,10 +5,10 @@
         <HomeNavbar></HomeNavbar>
       </el-aside>
       <el-container>
-        <el-header><SeachBar @searchword="searchword"></SeachBar></el-header>
+        <el-header><SeachBar @searchword="searchword" :words="words"></SeachBar></el-header>
         <el-main>
           <div class="wordsdisplay">
-              <WordShow :showword="showword"></WordShow>
+              <WordShow></WordShow>
           </div>
                 
         </el-main>
@@ -27,6 +27,10 @@
 </template>
 
 <script>
+import {getWordMutidata} from "@/network/home"  //请求首页数据
+import { getAllBooks } from '@/network/books';
+import { getProfileInfo } from "@/network/profile";
+
 import WordShow from "./child/WordShow.vue";
 import WordsAbout from "./child/WordsAbout.vue"
 import StatiscWords from "./child/StatiscWords.vue" //单词进度
@@ -43,14 +47,44 @@ export default {
     WordsAbout,
     WordShow
   },
+  created() {
+    this.getBooksList()
+    this.getHomeWords();
+    this.con()
+    this.getUserId()
+  },
   data() {
     return {
-      showword: ''
+      words: []
     }
   },
   methods: {
+    con(){
+      console.log(window.localStorage.getItem('Authorization'))
+      console.log(this.$store.state.Authorization)
+    },
     searchword(event){
       this.showword = event;
+    },
+    getHomeWords() {
+      getWordMutidata(1).then(res => {
+        //this.$store.commit('setAllWords',res.data);
+        console.log(res)
+        /*this.words.push(...res.data)*/
+      })
+    },
+    getBooksList() {
+      getAllBooks().then(res => {
+        /*this.books.push(...res.data)*/
+        this.$store.commit('setBookList',res.data)
+        console.log(res)
+      })
+    },
+    getUserId() {
+      getProfileInfo().then(res => {
+        console.log(res)
+        this.$store.commit('setuserId',res.data.id) 
+      })
     }
   },
 }

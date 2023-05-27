@@ -4,16 +4,19 @@
             <thead>
                 <tr>
                     <th scope="col" class="word">单词</th>
-                    <th scope="col" class="feature">词性</th>
+                    <th scope="col" class="feature">例子</th>
                     <th scope="col" class="interpret">中文释义</th>
-                    
+                    <th scope="col" class="forgetTime">不记得次数</th>
+                    <th scope="col" class="isFamiliar">熟悉程度</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(item,index) in tableData" :key="index-1" :id="index">
-                    <td>{{ item.word }}</td>
-                    <td>{{ item.feature }}</td>
-                    <td>{{ item.interpret }}</td>
+                <tr v-for="(item,index) in tableData" :key="index-1" :id="item.id">
+                    <td>{{ item.value }}</td>
+                    <td>{{ item.example}}</td>
+                    <td>{{ item.meaningChinese}}</td>
+                    <td>{{ item.forgetTime }}</td>
+                    <td>{{ Familiar(item.isFamiliar) }}</td>
                 </tr>
             </tbody>
         </table>
@@ -29,24 +32,38 @@ export default {
         default() {
             return ''
         }
+    },
+    bookdid: {
+        type: Number
     }
   },
+  data () {
+    return {
+        tableData: [],
+        
+    }
+  },
+  created(){
+    this.settableData()
+    console.log('current',this.$store.state.currentWordsBookList)
+  },
+  
   watch:{
     toword: {
         handler(toward){
             var id = 0;
             var flag = false;
             for(let i = 0; i < this.tableData.length;i++){
-                if(toward==this.tableData[i].word){
+                if(toward==this.tableData[i].value){
                     id = this.tableData[i].id;
                     flag = true;
-                }
-                
+                }               
             }
             console.log(id);
             if(flag){
                 //滚动到指定位置
                 let target = document.getElementById(id)
+                console.log('单词target',target)
                 target.style.color='blue'
                 target.scrollIntoView({
                 behavior: "smooth", // 平滑过渡
@@ -61,45 +78,22 @@ export default {
             
     }
   },
-  data() {
-      return {
-        tableData: [
-        {id: 0 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 1 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 2 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 3 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 4 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 5 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 6 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 7 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 8 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 9 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 10 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 11 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 12 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 13 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 14 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 15 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 16 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 17 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 18 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 19 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 20 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 21 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 22 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 23 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 24 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 25 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 26 ,word: 'hello', feature: 'noun', interpret: '你好'},
-        {id: 27 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 28 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 29 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 30 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 31 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        {id: 32 ,word: 'word', feature: 'noun', interpret: '文字，文档，词语'},
-        ]
-      }
+  methods: {
+    settableData() {
+        /*let resdata=JSON.parse(JSON.stringify(this.$store.state.currentWordsBookList))
+        console.log('shuzu',resdata)*/
+        setTimeout(() => {
+            this.tableData = this.$store.state.currentWordsBookList   
+            console.log('table',this.tableData)
+        },150)  
+    },
+    Familiar(x) {
+        if(x == 1) return '记得'
+        else if(x==2) return '模糊'
+        else return '不记得'
     }
+  }
+  
 }
 </script>
 

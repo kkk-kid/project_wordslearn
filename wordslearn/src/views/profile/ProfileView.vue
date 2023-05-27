@@ -12,6 +12,8 @@
 </template>
 
 <script>
+
+
 import ProfileNavbar from './child/ProfileNavbar.vue';
 import ProfileInfo from './child/ProfileInfo.vue';
 
@@ -20,7 +22,8 @@ export default {
   components: {
     ProfileNavbar,
     ProfileInfo
-  }
+  },
+  
 }
 </script>
 

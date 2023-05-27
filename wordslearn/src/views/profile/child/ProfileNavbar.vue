@@ -18,9 +18,9 @@
           <i class="el-icon-user-solid"></i>
           <span slot="title">个人资料</span>
         </el-menu-item>
-        <el-menu-item index="/setting">
-          <i class="el-icon-s-tools"></i>
-          <span slot="title">设置</span>
+        <el-menu-item index="/login/signin" @click="LogoutBtn()">
+          <i class="el-icon-menu"></i>
+          <span slot="title">退出登录</span>
         </el-menu-item>
       </el-menu>
     </div>
@@ -36,6 +36,10 @@
         handleClose(key, keyPath) {
           console.log(key, keyPath);
         },
+        LogoutBtn() {  //退出登录
+              localStorage.clear()
+			        window.sessionStorage.clear()
+        }
       }
   }
   </script>
@@ -46,5 +50,8 @@
       height: 100%;
       width: 10%;
   }
+  .el-menu-item{
+  text-align: left;
+}
   </style>
   

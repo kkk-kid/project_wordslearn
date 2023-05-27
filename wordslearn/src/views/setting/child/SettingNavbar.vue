@@ -46,5 +46,8 @@
       height: 100%;
       width: 10%;
   }
+  .el-menu-item{
+  text-align: left;
+}
   </style>
   

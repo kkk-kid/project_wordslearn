@@ -1,15 +1,20 @@
 <template>
-    <el-tooltip class="item" effect="dark" :content="book.name" placement="top">
-        <div class="bookitem" @click="bookClick(book.name)" >
-            <div><img src="https://img.zcool.cn/community/01ee5c5ad994d8a80120927b142b2a.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100" alt=""></div>
+    <el-tooltip class="item" effect="dark"  placement="top">
+        <div slot="content">{{book.name}}<br/>简介：{{ book.intro }}<br/>适用人群：{{ book.suitableUsers }}</div>
+        <div class="bookitem" @click="bookClick(book)" >
+            <div><img src="https://pic3.zhimg.com/v2-4fc5ca746aa56334ad772504557907d1_r.jpg?source=1940ef5c" alt=""></div>
             <div class="bookinfo">{{book.name}}</div>
+            <div class="bookinfo">简介：{{ book.intro }}</div>
+            <div class="bookinfo">适用人群：{{ book.suitableUsers }}</div>
         </div>
     </el-tooltip>
-
+    
     
 </template>
 
 <script>
+import { getBook } from "@/network/books"
+
 export default {
   name: 'BookItem',
   props: {
@@ -21,9 +26,16 @@ export default {
     }
   },
   methods: {
-    bookClick(bookname) {
-        this.$router.push('/book'+bookname)
-        console.log(bookname)
+    bookClick(book) {
+        this.$router.push('/book'+book.name)
+        //console.log(bookid)
+        getBook(book.id,this.$store.state.userId).then(res => {
+            let resdata=JSON.parse(JSON.stringify(res.data.words))
+            console.log("书单",resdata)
+            this.$store.commit('setcurrentWordsBookList',resdata)
+            console.log(res)
+            console.log('vuex',this.$store.state.currentWordsBookList)
+        })
     }
   }
 }
@@ -35,7 +47,7 @@ export default {
     width: 200px;
     height: 300px;
     overflow: hidden;
-    background-color: rgb(215, 220, 224);
+    background-color: rgb(220, 215, 215);
     border-radius: 15px;
     margin: 26px;
     

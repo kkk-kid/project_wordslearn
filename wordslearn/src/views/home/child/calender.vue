@@ -9,34 +9,44 @@
             </p>
             <div v-for="(item,index) in dateContent" :key="index">
                 <el-row v-if="item == data.day">
-                    <span><el-tag type="success">已背15词</el-tag></span>
+                    <span><el-tag type="success">已背词</el-tag></span>
                 </el-row>  
             </div>
-            <div v-for="(item) in dateNoContent" :key="item.id">
-                <el-row v-if="item == data.day">
-                  <el-tag type="danger">未背3词</el-tag>
-                </el-row>  
-            </div>
+            
         </template>
   </el-calendar>
     </div>
 </template>
 
 <script>
+import {getWordLearnPlan} from "@/network/home"
 export default {
   name: 'CalenderCpn',
   data(){
     return {
-      dateContent: [
-        '2023-05-01','2023-05-02'
-      ],
-      dateNoContent: [
-        '2023-05-03','2023-05-04'
-      ]
+      startDate: '',
+      dateContent: [],
+      dateNoContent: [],
+      wordsPerDay: 0,
+      totalDays: 0,
+      finishedWords: 0,
+      startdate: '',
+      enddate: '',
     }
   },
+  created() {
+      this.getPlan()
+  },
   methods: {
-    
+    getPlan() {
+      getWordLearnPlan(this.$store.state.userId).then(res => {
+          this.$store.commit('setPlan',res.data)
+          this.wordsPerDay = res.data.wordsPerDay
+          this.finishedWords = res.data.finishedWords
+          
+          console.log(res.data)
+      })
+    }
   }
 }
 </script>
@@ -48,7 +58,7 @@ export default {
 .el-calendar{
   
   margin-top: 15%;
-  line-height: 10px;
+  line-height: 0;
 }
 
 
