@@ -34,6 +34,7 @@ import { getProfileInfo } from "@/network/profile";
 import WordShow from "./child/WordShow.vue";
 import WordsAbout from "./child/WordsAbout.vue"
 import StatiscWords from "./child/StatiscWords.vue" //单词进度
+
 import CalenderCpn from './child/calender.vue' //进度日历
 import SeachBar from '@/components/commom/search/SeachBar.vue';  //搜索框
 import HomeNavbar from './child/HomeNavbar.vue';   //侧边导航栏

@@ -88,9 +88,8 @@ export default {
         },150)  
     },
     Familiar(x) {
-        if(x == 1) return '记得'
-        else if(x==2) return '模糊'
-        else return '不记得'
+        if(x == 1) return '熟悉'
+        else return '不熟悉'
     }
   }
   

@@ -34,15 +34,15 @@ export default {
       enddate: '',
     }
   },
-  created() {
+  mounted() {
       this.getPlan()
   },
   methods: {
     getPlan() {
       getWordLearnPlan(this.$store.state.userId).then(res => {
           this.$store.commit('setPlan',res.data)
-          this.wordsPerDay = res.data.wordsPerDay
-          this.finishedWords = res.data.finishedWords
+          /*this.wordsPerDay = res.data.wordsPerDay
+          this.finishedWords = res.data.finishedWords*/
           
           console.log(res.data)
       })

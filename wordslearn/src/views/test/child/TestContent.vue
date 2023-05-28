@@ -79,7 +79,7 @@ export default {
               console.log(res)
               this.$store.commit('settestResult',res.data)
             })
-          },500)
+          },200)
       }
     },
     timeOut() {

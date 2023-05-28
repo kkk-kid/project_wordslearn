@@ -26,13 +26,14 @@ export default {
             module.testChoice
         ).then(res => {
             console.log('请求数据',res)
-            if(res.code==500) alert('请先进行设置')
-            else{
+            //if(res.code==500) alert('请先进行设置')
+            //else{
+                console.log(res)
                 this.$store.commit('settestList',res.data)
                 setTimeout(() =>{
                     this.$router.push('/test/testcontent')
                 },500)   
-            }
+            //}
             
         })
         

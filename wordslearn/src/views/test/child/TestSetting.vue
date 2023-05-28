@@ -160,16 +160,21 @@ td{
   text-align: left;
 }
 select{
+  width: 200px;
+  background-color: rgb(240, 240, 240);
   height: 40px;
   border: #edecec;
   font-family: inherit;
   border-radius: 5px;
-  
   outline-color:#ffffff;
+  outline-style: hidden;
+ 
+
 }
 select:focus-visible {
     /* outline: -webkit-focus-ring-color auto 1px; 这是谷歌浏览器的原生样式*/
     outline: none;
 }
+
 
 </style>

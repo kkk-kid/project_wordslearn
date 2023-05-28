@@ -7,12 +7,12 @@ export function getProfileInfo(){
     })
 }
 
-export function putProfileInfo(id,gender,phonenumber,mail) {
+export function putProfileInfo(id,gender,phone,email) {
     return request({
         method: 'put',
         url: '/user/userInfo',
         data: {
-            id,gender,phonenumber,mail
+            id,gender,phone,email
         }
     })
 }

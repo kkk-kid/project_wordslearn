@@ -19,7 +19,7 @@
           <span slot="title">个人资料</span>
         </el-menu-item>
         <el-menu-item index="/login/signin" @click="LogoutBtn()">
-          <i class="el-icon-menu"></i>
+          <i class="el-icon-error"></i>
           <span slot="title">退出登录</span>
         </el-menu-item>
       </el-menu>

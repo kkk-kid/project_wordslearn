@@ -22,14 +22,15 @@
 export default {
   name: 'TestResult',
   created() {
-    
+    console.log(this.$store.state.testResult)
   }
 }
 </script>
 
 <style>
 td,th{
-  width: 100px;
+  width: 120px;
   line-height: 30px;
+  text-align: left;
 }
 </style>

@@ -144,22 +144,33 @@ export default {
         checkClick1() {
             postLearnPlan(this.$store.state.userId,this.formStartDate,this.planDays,this.perDayNumber,this.wordbookId)
             this.dialogTableVisible1 = false
-            this.getPlan()
+            setTimeout(() => {
+                this.getPlan()
+            },800)
         },
         checkClick2() {
             postLearnPlan(this.$store.state.userId,this.selectBookdate,this.formPlanDays,this.perDayNumber,this.wordbookId)
             this.dialogTableVisible2 = false
-            this.getPlan()
+            
+            setTimeout(() => {
+                this.getPlan()
+            },800)
         },
         checkClick3() {
             postLearnPlan(this.$store.state.userId,this.selectBookdate,this.planDays,this.formPerDayNumber,this.wordbookId)
             this.dialogTableVisible3 = false
-            this.getPlan()
+            
+            setTimeout(() => {
+                this.getPlan()
+            },800)
         },
         checkClick4() {
             postLearnPlan(this.$store.state.userId,this.selectBookdate,this.planDays,this.perDayNumber,this.formSelectBook.id)
             this.dialogTableVisible4 = false
-            this.getPlan()
+            
+            setTimeout(() => {
+                this.getPlan()
+            },800)
         },
     },
    
@@ -167,7 +178,7 @@ export default {
 </script>
 
 <style>
-table {
+.plansetting > table {
     border-collapse: collapse;
     border: 1px solid rgb(200, 200, 200);
     border-collapse:collapse;
@@ -211,13 +222,9 @@ select:focus-visible {
     /* outline: -webkit-focus-ring-color auto 1px; 这是谷歌浏览器的原生样式*/
     outline: none;
 }
-.el-button{
-    
-}
+
 .el-input{
     width: 130px;
 }
-.el-form-item__label-wrap {
-  
-}
+
 </style>

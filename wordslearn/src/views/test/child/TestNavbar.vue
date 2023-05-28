@@ -16,7 +16,7 @@
                     <span slot="title">单词自测</span>
                 </el-menu-item>
                 <el-menu-item index="/test/testhistory" >
-                    <i class="el-icon-s-management"></i>
+                    <i class="el-icon-s-order"></i>
                     <span slot="title">历史测试</span>
                 </el-menu-item>
                 <el-menu-item index="/test/testsetting">
